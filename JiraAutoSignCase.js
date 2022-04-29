@@ -3,7 +3,7 @@ var build = '这里填buildnum';
 function sleep(time){
      return new Promise((resolve) => setTimeout(resolve, time));
 }
-    
+
 async function run(){
 	var $x = function (xpath, context) {
         var nodes = [];
@@ -17,7 +17,7 @@ async function run(){
         } catch (e) {
              throw e;
         }
-        return nodes; 
+        return nodes;
 }
 
 	$x('(//*[normalize-space(text())="Build Tested:"]/../*)[2]//*[@class="ktm-editable-field-icon-wrapper"]')[0].click();
@@ -26,9 +26,11 @@ async function run(){
 	await sleep(1000);
 	$x('//*[@ng-click="toggleTimer()"]')[0].click();
 	await sleep(1000);
+	for(i=0;i<10;i++){$x("//*[@class='ktm-result-details-single-view ng-scope']")[0].scrollBy(0,999999);await sleep(200);}
+	await sleep(1000);
 	var gougou = $x('//*[@ng-click="changeStatusTo(statusPass)"]');
 	await sleep(1000);
-	for(i=0;i<gougou.length;i++){gougou[i].click();await sleep(400);}
+	for(i=0;i<gougou.length;i++){gougou[i].click();await sleep(100);}
 }
     
 run();
