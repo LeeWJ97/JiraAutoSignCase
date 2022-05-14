@@ -26,7 +26,7 @@ async function run(){
 	await sleep(1000);
 	$x('//*[@ng-click="toggleTimer()"]')[0].click();
 	await sleep(1000);
-	for(i=0;i<10;i++){$x("//*[@class='ktm-result-details-single-view ng-scope']")[0].scrollBy(0,999999);await sleep(200);}
+	for(i=0;i<100;i++){$x("//*[@class='ktm-result-details-single-view ng-scope']")[0].scrollBy(0,999999);await sleep(20);}
 	await sleep(1000);
 	var gougou = $x('//*[@ng-click="changeStatusTo(statusPass)"]');
 	await sleep(1000);
